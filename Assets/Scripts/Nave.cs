@@ -1,9 +1,11 @@
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Nave : MonoBehaviour
 {
     public float speed;
     public int stars;
+    public Text scoreText;
     private Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,6 +29,7 @@ public class Nave : MonoBehaviour
     public void countStars()
     {
         stars += 1;
+        scoreText.text = stars.ToString();
         Debug.Log("Pontuação: " + stars);
     }
 

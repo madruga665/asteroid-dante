@@ -3,6 +3,7 @@ using UnityEngine;
 public class Nave : MonoBehaviour
 {
     public float speed;
+    public int stars;
     private Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,13 +14,19 @@ public class Nave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(horizontalInput * speed, rb.linearVelocity.y);
+        Move();
     }
 
     public void Move()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(horizontalInput * speed, rb.linearVelocity.y);
+        float horizontalInput = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        float verticalInput = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        rb.linearVelocity = new Vector2(horizontalInput, verticalInput);
+    }
+
+    public void countStars()
+    {
+        stars += 1;
+        Debug.Log("Pontuação: " + stars);
     }
 }

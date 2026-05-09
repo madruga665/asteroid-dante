@@ -29,4 +29,9 @@ public class Nave : MonoBehaviour
         stars += 1;
         Debug.Log("Pontuação: " + stars);
     }
+
+    public void gameOver()
+    {
+        Debug.Log("Game Over! A nave colidiu com o asteroide!");
+    }
 }

@@ -18,6 +18,7 @@ public class StartMenu : MonoBehaviour
     {
         Time.timeScale = 1f; // Resume the game when the start button is pressed
         this.gameObject.SetActive(false); // Hide the start menu
+        FindAnyObjectByType<Sounds>().PlaySoundTrack(); // Play the background music when the start menu is active
     }
 
     public void QuitGame()

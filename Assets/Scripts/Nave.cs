@@ -7,6 +7,7 @@ public class Nave : MonoBehaviour
     public int stars;
     public Text scoreText;
     public Text scoreNumber;
+    public Text highScore;
     private Rigidbody2D rb;
     public GameObject gameOverScreen;
     void Start()
@@ -32,6 +33,36 @@ public class Nave : MonoBehaviour
         stars += 1;
         scoreText.text = stars.ToString();
         Debug.Log("Pontuação: " + stars);
+
+        if (stars > 10)
+        {
+            Time.timeScale = 1.1f;
+        }
+        if (stars > 20)
+        {
+            Time.timeScale = 1.2f;
+        }
+        if (stars > 30)
+        {
+            Time.timeScale = 1.3f;
+        }
+        if (stars > 40)
+        {
+            Time.timeScale = 1.4f;
+        }
+        if (stars > 50)
+        {
+            Time.timeScale = 1.5f;
+        }
+        if (stars > 60)
+        {
+            Time.timeScale = 1.6f;
+        }
+        if (stars > 100)
+        {
+            Time.timeScale = 2f;
+        }
+
     }
 
     public void GameOver()
@@ -40,6 +71,14 @@ public class Nave : MonoBehaviour
         gameOverScreen.SetActive(true);
         scoreNumber.text = stars.ToString();
         FindAnyObjectByType<Sounds>().PlayGameOverSound();
+
+        if (stars > PlayerPrefs.GetInt("highScore"))
+        {
+            PlayerPrefs.SetInt("highScore", stars);
+        }
+
+        highScore.text = PlayerPrefs.GetInt("highScore").ToString();
+
         Debug.Log("Game Over! A nave colidiu com o asteroide!");
     }
 }

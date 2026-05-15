@@ -8,7 +8,7 @@ public class Asteroid : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().enabled = false; 
             Destroy(gameObject, 0.8f); // 
-            collision.GetComponent<Nave>().gameOver();
+            collision.GetComponent<Nave>().GameOver();
         }
     }
 }

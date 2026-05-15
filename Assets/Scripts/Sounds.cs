@@ -12,6 +12,7 @@ public class Sounds : MonoBehaviour
 
     public void PlayGameOverSound()
     {
-        gameOverSound.Play();
+        soundTrack.Stop();
+        // gameOverSound.Play();
     }
 }

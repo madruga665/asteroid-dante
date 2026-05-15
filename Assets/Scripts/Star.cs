@@ -12,7 +12,7 @@ public class Star : MonoBehaviour
             Debug.Log("Nave colidiu com a estrela!");
             GetComponent<SpriteRenderer>().enabled = false; // Esconde a estrela
             Destroy(gameObject, 0.8f); // Destroi a estrela após a colisão
-            collision.GetComponent<Nave>().countStars(); // Chama o método para adicionar pontuação na nave
+            collision.GetComponent<Nave>().CountStars(); // Chama o método para adicionar pontuação na nave
             collect_sound.Play(); // Toca o som de coleta
         }
     }
